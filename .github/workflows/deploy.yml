@@ -22,4 +22,4 @@ jobs:
       - name: Install dependencies
         run: cd backend && npm install
       - name: Resart supervisor
-        run: sudo systemctl restart cicd-demo
+        run: sudo supervisorctl restart cicd-demo
