@@ -14,3 +14,12 @@ jobs:
         run: cd backend && npm install
       - name: Run tests
         run: cd backend && npm test
+  deploy:
+    runs-on: self-hosted
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: cd backend && npm install
+      - name: Resart supervisor
+        run: sudo systemctl restart cicd-demo
